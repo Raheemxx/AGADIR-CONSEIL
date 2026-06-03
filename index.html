@@ -706,6 +706,19 @@ nav { display:flex; align-items:center; gap:2px; }
   letter-spacing: 0.03em;
 }
 .form-submit:hover { background: var(--blue); }
+.form-success-msg {
+  display: none;
+  padding: 12px 16px;
+  background: #D4EDDA;
+  color: #155724;
+  border: 1px solid #C3E6CB;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+}
+.form-success-msg.show {
+  display: block;
+}
 
 /* REFERENCES */
 .refs-section { padding: 64px 48px; background: var(--white); }
@@ -931,10 +944,10 @@ footer {
         <div class="section-tag">Qui sommes-nous</div>
         <h3>Un bureau d'études au service de votre réussite</h3>
         <p>
-          Fondé à Agadir en 2005, <strong>Agadir Conseil</strong> est un bureau d'études pluridisciplinaire spécialisé dans les domaines des études économiques, du conseil juridique, de l'audit et de la formation. Nous intervenons auprès des entreprises privées, des institutions publiques et des porteurs de projets de la région Souss-Massa et au-delà.
+          Fondé à Agadir en 2005, <strong>Agadir Conseil</strong> est un bureau d'études pluridisciplinaire spécialisé dans les domaines des études économiques, du conseil juridique, de l'audit[...]
         </p>
         <p>
-          Notre équipe de consultants expérimentés conjugue rigueur méthodologique, connaissance approfondie du cadre réglementaire marocain et sens aigu de l'écoute pour vous offrir des prestations sur mesure, adaptées aux réalités du terrain.
+          Notre équipe de consultants expérimentés conjugue rigueur méthodologique, connaissance approfondie du cadre réglementaire marocain et sens aigu de l'écoute pour vous offrir des prestat[...]
         </p>
         <p>
           Installés au 2ème étage de l'Immeuble Ifrane, Avenue Al Mouqaouama à Agadir, nous assurons une présence locale forte tout en développant nos interventions à l'échelle nationale.
@@ -974,13 +987,13 @@ footer {
       <div class="service-card">
         <div class="service-icon-wrap">📊</div>
         <div class="service-name">Études & Consulting</div>
-        <p class="service-desc">Réalisation d'études de faisabilité, études de marché, diagnostics organisationnels et plans de développement stratégique pour les entreprises et institutions.</p>
+        <p class="service-desc">Réalisation d'études de faisabilité, études de marché, diagnostics organisationnels et plans de développement stratégique pour les entreprises et institutio[...]
         <a href="#contact" class="service-link">En savoir plus →</a>
       </div>
       <div class="service-card">
         <div class="service-icon-wrap">⚖️</div>
         <div class="service-name">Conseil Juridique</div>
-        <p class="service-desc">Accompagnement juridique complet : rédaction de contrats, conseil en droit des affaires, droit social, contentieux et sécurisation juridique de vos opérations.</p>
+        <p class="service-desc">Accompagnement juridique complet : rédaction de contrats, conseil en droit des affaires, droit social, contentieux et sécurisation juridique de vos opérations.<[...]
         <a href="#contact" class="service-link">En savoir plus →</a>
       </div>
       <div class="service-card">
@@ -999,358 +1012,81 @@ footer {
   </div>
 </section>
 
-<!-- VEILLE JURIDIQUE / LOIS -->
-<section class="section lois" id="lois">
-  <div class="section-inner">
-    <div class="lois-intro">
-      <div>
-        <div class="section-tag">Veille réglementaire</div>
-        <h2 class="section-title">Textes de lois & <em>Réglementation</em></h2>
-        <div class="section-line"></div>
-        <p class="section-sub">Accédez aux principaux textes législatifs marocains en vigueur, directement depuis le site officiel du Secrétariat Général du Gouvernement (SGG).</p>
-      </div>
-      <div>
-        <div class="lois-filter">
-          <button class="filter-btn active" onclick="filterLois('all')">Tous</button>
-          <button class="filter-btn" onclick="filterLois('fiscal')">Fiscalité</button>
-          <button class="filter-btn" onclick="filterLois('social')">Droit social</button>
-          <button class="filter-btn" onclick="filterLois('commercial')">Droit commercial</button>
-          <button class="filter-btn" onclick="filterLois('investissement')">Investissement</button>
-          <button class="filter-btn" onclick="filterLois('general')">Général</button>
-        </div>
-        <p style="font-size:0.82rem; color:var(--text-soft); line-height:1.65;">
-          Les textes sont accessibles sur le portail officiel 
-          <a href="https://www.sgg.gov.ma" target="_blank" style="color:var(--blue);font-weight:600;">sgg.gov.ma</a> 
-          et le Bulletin Officiel du Royaume du Maroc. Agadir Conseil assure une veille continue pour vous tenir informé des évolutions législatives.
-        </p>
-      </div>
-    </div>
-
-    <div class="lois-grid" id="loisGrid">
-      <!-- Loi de finances -->
-      <a href="https://www.finances.gov.ma/Publication/dgi/2024/LF2025.pdf" target="_blank" class="loi-card" data-cat="fiscal">
-        <div class="loi-category cat-fiscal">Fiscalité</div>
-        <div class="loi-ref">Loi n° 60-24</div>
-        <div class="loi-title">Loi de Finances pour l'année 2025</div>
-        <p class="loi-desc">Budget de l'État, dispositions fiscales, impôts sur les sociétés, TVA et mesures de relance économique.</p>
-        <div class="loi-footer">
-          <span class="loi-date">BO n° 7351 bis · 2024</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-
-      <!-- Code du travail -->
-      <a href="https://www.emploi.gov.ma/index.php/fr/legislation/code-du-travail" target="_blank" class="loi-card" data-cat="social">
-        <div class="loi-category cat-social">Droit social</div>
-        <div class="loi-ref">Loi n° 65-99</div>
-        <div class="loi-title">Code du Travail (modifié)</div>
-        <p class="loi-desc">Relations de travail, contrat, licenciement, représentation syndicale, durée du travail et hygiène & sécurité.</p>
-        <div class="loi-footer">
-          <span class="loi-date">Mis à jour · 2023</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-
-      <!-- Code des sociétés -->
-      <a href="https://www.sgg.gov.ma" target="_blank" class="loi-card" data-cat="commercial">
-        <div class="loi-category cat-commercial">Droit commercial</div>
-        <div class="loi-ref">Loi n° 17-95 et 5-96</div>
-        <div class="loi-title">Loi sur les Sociétés Anonymes & SARL</div>
-        <p class="loi-desc">Constitution, fonctionnement, gouvernance, transformation et dissolution des sociétés commerciales au Maroc.</p>
-        <div class="loi-footer">
-          <span class="loi-date">Dernière modification · 2022</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-
-      <!-- Charte investissement -->
-      <a href="https://www.sgg.gov.ma" target="_blank" class="loi-card" data-cat="investissement">
-        <div class="loi-category cat-investissement">Investissement</div>
-        <div class="loi-ref">Loi-cadre n° 03-22</div>
-        <div class="loi-title">Nouvelle Charte de l'Investissement</div>
-        <p class="loi-desc">Régime général d'incitation à l'investissement, avantages fiscaux, CRI et procédures simplifiées pour les investisseurs.</p>
-        <div class="loi-footer">
-          <span class="loi-date">En vigueur · 2023</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-
-      <!-- Délais de paiement -->
-      <a href="https://www.sgg.gov.ma" target="_blank" class="loi-card" data-cat="commercial">
-        <div class="loi-category cat-commercial">Droit commercial</div>
-        <div class="loi-ref">Loi n° 69-21</div>
-        <div class="loi-title">Loi relative aux délais de paiement</div>
-        <p class="loi-desc">Réglementation des délais de paiement interentreprises, sanctions et mécanismes de suivi pour améliorer le climat des affaires.</p>
-        <div class="loi-footer">
-          <span class="loi-date">BO 2023</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-
-      <!-- Marchés publics -->
-      <a href="https://www.sgg.gov.ma" target="_blank" class="loi-card" data-cat="general">
-        <div class="loi-category cat-general">Général</div>
-        <div class="loi-ref">Décret n° 2-22-431</div>
-        <div class="loi-title">Règlement sur les Marchés Publics</div>
-        <p class="loi-desc">Procédures de passation, exécution et contrôle des marchés publics au Maroc. Appels d'offres et qualification des entreprises.</p>
-        <div class="loi-footer">
-          <span class="loi-date">En vigueur · 2023</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-
-      <!-- CGI -->
-      <a href="https://www.tax.gov.ma" target="_blank" class="loi-card" data-cat="fiscal">
-        <div class="loi-category cat-fiscal">Fiscalité</div>
-        <div class="loi-ref">CGI – Édition 2025</div>
-        <div class="loi-title">Code Général des Impôts (CGI)</div>
-        <p class="loi-desc">IS, IR, TVA, droits d'enregistrement, taxe professionnelle et ensemble des dispositions fiscales applicables au Maroc.</p>
-        <div class="loi-footer">
-          <span class="loi-date">DGI Maroc · 2025</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-
-      <!-- CNSS -->
-      <a href="https://www.cnss.ma" target="_blank" class="loi-card" data-cat="social">
-        <div class="loi-category cat-social">Droit social</div>
-        <div class="loi-ref">Dahir n° 1-72-184</div>
-        <div class="loi-title">Régime de Sécurité Sociale (CNSS)</div>
-        <p class="loi-desc">Couverture sociale des salariés du secteur privé, cotisations, allocations familiales, assurance maladie et retraite.</p>
-        <div class="loi-footer">
-          <span class="loi-date">Mis à jour · 2024</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-
-      <!-- Loi anti-corruption -->
-      <a href="https://www.sgg.gov.ma" target="_blank" class="loi-card" data-cat="general">
-        <div class="loi-category cat-general">Général</div>
-        <div class="loi-ref">Loi n° 46-19</div>
-        <div class="loi-title">Haute Autorité de la Commande Publique</div>
-        <p class="loi-desc">Création, organisation et missions de la HACP. Contrôle, audit et recours en matière de commande publique.</p>
-        <div class="loi-footer">
-          <span class="loi-date">BO 2022</span>
-          <span class="loi-link">Consulter →</span>
-        </div>
-      </a>
-    </div>
-
-    <div class="lois-source-note">
-      📌 <strong>Source officielle :</strong> Tous les textes de lois sont disponibles en intégralité sur le portail du 
-      <a href="https://www.sgg.gov.ma" target="_blank">Secrétariat Général du Gouvernement (sgg.gov.ma)</a>, 
-      le <a href="https://www.bulletinofficiel.gov.ma" target="_blank">Bulletin Officiel du Maroc</a> 
-      et le portail de la <a href="https://www.tax.gov.ma" target="_blank">Direction Générale des Impôts</a>.
-      Agadir Conseil vous accompagne dans l'analyse et l'application de ces textes à votre situation spécifique.
-    </div>
-  </div>
-</section>
-
-<!-- EVENEMENTS -->
-<section class="section events-section" id="evenements">
-  <div class="section-inner">
-    <div class="section-header">
-      <div class="section-tag">Agenda</div>
-      <h2 class="section-title">Événements & <em>Actualités</em></h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="events-grid">
-      <div class="event-list">
-        <div class="event-item">
-          <div class="event-date-block">
-            <div class="event-day">15</div>
-            <div class="event-month">Juin 2025</div>
-          </div>
-          <div class="event-body">
-            <div class="event-tag">Forum économique</div>
-            <div class="event-title">Forum Économique du Souss-Massa : Perspectives 2025–2030</div>
-            <div class="event-meta">📍 Agadir · Participation d'Agadir Conseil</div>
-          </div>
-        </div>
-        <div class="event-item">
-          <div class="event-date-block">
-            <div class="event-day">22</div>
-            <div class="event-month">Avr. 2025</div>
-          </div>
-          <div class="event-body">
-            <div class="event-tag">Atelier</div>
-            <div class="event-title">Atelier sur la réforme fiscale marocaine et ses impacts sur les entreprises</div>
-            <div class="event-meta">📍 Agadir · Chambre de Commerce</div>
-          </div>
-        </div>
-        <div class="event-item">
-          <div class="event-date-block">
-            <div class="event-day">10</div>
-            <div class="event-month">Mar. 2025</div>
-          </div>
-          <div class="event-body">
-            <div class="event-tag">Conférence</div>
-            <div class="event-title">Gouvernance d'entreprise & développement durable — Enjeux régionaux</div>
-            <div class="event-meta">📍 Agadir · Hôtel Tikida</div>
-          </div>
-        </div>
-        <div class="event-item">
-          <div class="event-date-block">
-            <div class="event-day">28</div>
-            <div class="event-month">Jan. 2025</div>
-          </div>
-          <div class="event-body">
-            <div class="event-tag">Séminaire</div>
-            <div class="event-title">Séminaire de formation sur les délais de paiement — Loi 69-21</div>
-            <div class="event-meta">📍 Agadir · Siège Agadir Conseil</div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:18px;padding:28px;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:20px;">In Focus</div>
-          <div style="padding:14px 0;border-bottom:1px solid var(--border);">
-            <div style="font-size:0.7rem;color:var(--blue);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">09 Avr. 2025 · Économie</div>
-            <div style="font-size:0.87rem;color:var(--text-mid);line-height:1.5;">Les défis majeurs de l'économie marocaine face à la conjoncture mondiale en 2025</div>
-          </div>
-          <div style="padding:14px 0;border-bottom:1px solid var(--border);">
-            <div style="font-size:0.7rem;color:var(--blue);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">15 Mar. 2025 · Juridique</div>
-            <div style="font-size:0.87rem;color:var(--text-mid);line-height:1.5;">Délais de paiement : vers une amélioration du climat des affaires au Maroc ?</div>
-          </div>
-          <div style="padding:14px 0;border-bottom:1px solid var(--border);">
-            <div style="font-size:0.7rem;color:var(--blue);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">02 Fév. 2025 · Finance</div>
-            <div style="font-size:0.87rem;color:var(--text-mid);line-height:1.5;">Cash en circulation : 420 MMDH à fin 2024 selon Bank Al-Maghrib</div>
-          </div>
-          <div style="padding:14px 0;">
-            <div style="font-size:0.7rem;color:var(--blue);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px;">15 Jan. 2025 · Investissement</div>
-            <div style="font-size:0.87rem;color:var(--text-mid);line-height:1.5;">Charte de l'investissement 2023 : premier bilan et perspectives régionales</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ONLINE SERVICES -->
-<section class="online-section">
-  <div class="section-header" style="max-width:1240px;margin:0 auto;padding:0 0 48px;text-align:center;">
-    <span class="section-tag">Accès rapide</span>
-    <h2 class="section-title" style="color:white;">Services en <em style="color:var(--gold-light);">ligne</em></h2>
-    <div class="section-line" style="margin:16px auto 0;"></div>
-  </div>
-  <div class="online-grid">
-    <div class="online-card">
-      <span class="online-icon">🎓</span>
-      <div class="online-title">Espace Formation</div>
-      <p class="online-desc">Programmes de formation adaptés à chaque niveau hiérarchique. Catalogue diversifié en droit, management, finances et développement des compétences.</p>
-      <a href="#contact" class="online-link">Consulter le catalogue →</a>
-    </div>
-    <div class="online-card">
-      <span class="online-icon">💼</span>
-      <div class="online-title">Recrutement</div>
-      <p class="online-desc">Offres d'emploi et dépôt de candidature spontanée. Agadir Conseil accompagne aussi les entreprises dans leur politique de recrutement et GRH.</p>
-      <a href="#contact" class="online-link">Voir les offres →</a>
-    </div>
-    <div class="online-card">
-      <span class="online-icon">📚</span>
-      <div class="online-title">Documentation Juridique</div>
-      <p class="online-desc">Notes d'information, guides pratiques et fiches synthétiques sur la fiscalité, le droit du travail et la réglementation des entreprises au Maroc.</p>
-      <a href="#lois" class="online-link">Accéder à la veille →</a>
-    </div>
-  </div>
-</section>
-
-<!-- REFERENCES -->
-<section class="refs-section">
-  <div style="max-width:1240px;margin:0 auto;">
-    <div style="text-align:center;">
-      <span class="section-tag">Ils nous font confiance</span>
-      <h2 class="section-title">Nos <em>références</em></h2>
-      <div class="section-line" style="margin:16px auto 0;"></div>
-    </div>
-  </div>
-  <div class="refs-wrap">
-    <div class="refs-track" id="refsTrack"></div>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section class="section contact-section" id="contact">
   <div class="section-inner">
-    <div class="section-header" style="text-align:center;">
-      <div class="section-tag">Nous contacter</div>
-      <h2 class="section-title">Prenez <em>rendez-vous</em></h2>
-      <div class="section-line" style="margin:16px auto 0;"></div>
-    </div>
     <div class="contact-grid">
       <div class="contact-info">
-        <h3>Agadir Conseil</h3>
-        <p>Notre équipe est disponible pour répondre à vos questions et vous accompagner dans vos projets.</p>
-
+        <h3>Nous contacter</h3>
+        <p>Utilisez le formulaire ci-contre pour nous envoyer vos demandes. Elles seront transmises directement à notre équipe via WhatsApp pour un traitement rapide.</p>
         <div class="contact-item">
           <div class="contact-icon">📍</div>
           <div class="contact-item-body">
             <strong>Adresse</strong>
-            <span>260, 2ème Étage Bloc E, Imm. Ifrane<br>Av. Al Mouqaouama — Agadir-Ida Ou Tanane</span>
+            <span>2ème étage, Immeuble Ifrane<br>Avenue Al Mouqaouama<br>Agadir, Maroc</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">📞</div>
           <div class="contact-item-body">
-            <strong>Téléphone</strong>
-        <a href="tel:+212661139869">06-61-13-98-69</a>
-        <a href="tel:+212608877775">06-08-87-77-75</a>
-        <a href="tel:+212608877774">06-08-87-77-74</a>
+            <strong>Téléphones</strong>
+            <span>06-61-13-98-69<br>06-08-87-77-75<br>06-08-87-77-74</span>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">✉️</div>
           <div class="contact-item-body">
-            <strong>E-mail</strong>
+            <strong>Email</strong>
             <a href="mailto:contact@agadirconseil.com">contact@agadirconseil.com</a>
           </div>
         </div>
-        <div class="contact-item">
-          <div class="contact-icon">🕐</div>
-          <div class="contact-item-body">
-            <strong>Horaires d'ouverture</strong>
-            <span>Lun–Ven : 08h30 – 12h30<br>Sam : 13h30 – 17h30</span>
-          </div>
-        </div>
       </div>
-      <div class="contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nom complet</label>
-            <input type="text" placeholder="Votre nom">
+      <div class="contact-form-wrapper">
+        <form class="contact-form" id="contactForm">
+          <div class="form-success-msg" id="successMsg">✓ Votre message a été envoyé avec succès via WhatsApp!</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">Prénom</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Nom</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Téléphone</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Entreprise</label>
+              <input type="text" id="company" name="company">
+            </div>
+            <div class="form-group">
+              <label for="service">Service demandé</label>
+              <select id="service" name="service" required>
+                <option value="">-- Sélectionner --</option>
+                <option value="Études & Consulting">Études & Consulting</option>
+                <option value="Conseil Juridique">Conseil Juridique</option>
+                <option value="Audit & Expertise">Audit & Expertise</option>
+                <option value="Formation & GRH">Formation & GRH</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
-            <label>Société / Organisation</label>
-            <input type="text" placeholder="Nom de votre société">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>E-mail</label>
-            <input type="email" placeholder="votre@email.com">
-          </div>
-          <div class="form-group">
-            <label>Téléphone</label>
-            <input type="tel" placeholder="+212 6XX XX XX XX">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Domaine d'intérêt</label>
-          <select>
-            <option value="">Sélectionner un service</option>
-            <option>Études & Consulting</option>
-            <option>Conseil Juridique</option>
-            <option>Audit & Expertise</option>
-            <option>Formation & GRH</option>
-            <option>Veille réglementaire</option>
-            <option>Autre demande</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Décrivez votre projet ou votre demande…"></textarea>
-        </div>
-        <button class="form-submit">Envoyer ma demande →</button>
+          <button type="submit" class="form-submit">Envoyer via WhatsApp</button>
+        </form>
       </div>
     </div>
   </div>
@@ -1360,90 +1096,117 @@ footer {
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <svg style="height:40px;width:auto;margin-bottom:14px;" viewBox="0 0 520 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M40 160 L100 60 L160 160Z" fill="rgba(255,255,255,0.9)"/>
-        <path d="M90 160 L150 60 L210 160Z" fill="rgba(255,255,255,0.5)"/>
+      <svg class="footer-brand-logo" viewBox="0 0 520 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 160 L100 60 L160 160Z" fill="white"/>
+        <path d="M90 160 L150 60 L210 160Z" fill="white" opacity="0.7"/>
         <path d="M125 112 L138 128 L125 144 L112 128Z" fill="#C49A22"/>
-        <text x="230" y="108" font-family="Cormorant Garamond, serif" font-size="58" font-weight="700" fill="white">AGADIR</text>
-        <text x="230" y="165" font-family="Cormorant Garamond, serif" font-size="58" font-weight="700" fill="white">CONSEIL</text>
       </svg>
-      <p>Bureau d'études pluridisciplinaire spécialisé en conseil juridique, études stratégiques, audit et formation. Ancré à Agadir depuis 2005.</p>
+      <p>Agadir Conseil est un bureau d'études pluridisciplinaire spécialisé dans le conseil juridique, les études économiques et l'audit depuis 2005.</p>
       <div class="footer-socials">
-        <a href="#" class="social-btn">f</a>
-        <a href="#" class="social-btn">in</a>
-        <a href="#" class="social-btn">tw</a>
+        <a href="#" class="social-btn" title="Facebook">f</a>
+        <a href="#" class="social-btn" title="LinkedIn">in</a>
+        <a href="#" class="social-btn" title="Twitter">𝕏</a>
       </div>
     </div>
     <div>
-      <div class="footer-col-title">Navigation</div>
+      <h4 class="footer-col-title">Navigation</h4>
       <ul class="footer-links">
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#about">Présentation</a></li>
-        <li><a href="#services">Métiers & Expertises</a></li>
+        <li><a href="#about">Qui sommes-nous</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#lois">Veille juridique</a></li>
-        <li><a href="#evenements">Événements</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Nos services</div>
+      <h4 class="footer-col-title">Services</h4>
       <ul class="footer-links">
-        <li><a href="#">Études & Consulting</a></li>
-        <li><a href="#">Conseil Juridique</a></li>
-        <li><a href="#">Audit & Expertise</a></li>
-        <li><a href="#">Formation & GRH</a></li>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">Recrutement</a></li>
+        <li><a href="#services">Études & Consulting</a></li>
+        <li><a href="#services">Conseil Juridique</a></li>
+        <li><a href="#services">Audit & Expertise</a></li>
+        <li><a href="#services">Formation & GRH</a></li>
       </ul>
     </div>
     <div>
-      <div class="footer-col-title">Contact</div>
-      <div class="footer-contact-item">
-        <span>📍</span>
-        <span>260, 2ème Étage Bloc E, Imm. Ifrane, Av. Al Mouqaouama — Agadir-Ida Ou Tanane</span>
-      </div>
+      <h4 class="footer-col-title">Contact</h4>
       <div class="footer-contact-item">
         <span>📞</span>
-        <a href="tel:+212661139869">06-61-13-98-69</a>
-        <a href="tel:+212608877775">06-08-87-77-75</a>
-        <a href="tel:+212608877774">06-08-87-77-74</a>
+        <span><a href="tel:+212661139869">06-61-13-98-69</a></span>
       </div>
       <div class="footer-contact-item">
         <span>✉️</span>
-        <a href="mailto:contact@agadirconseil.com">contact@agadirconseil.com</a>
+        <span><a href="mailto:contact@agadirconseil.com">contact@agadirconseil.com</a></span>
+      </div>
+      <div class="footer-contact-item">
+        <span>📍</span>
+        <span>Agadir, Maroc</span>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 <a href="#">Agadir Conseil</a>. Tous droits réservés.</span>
-    <span>Agadir, Maroc — Études & Conseil Juridique</span>
+    <p>&copy; 2025 Agadir Conseil. Tous droits réservés.</p>
+    <div>
+      <a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a>
+    </div>
   </div>
 </footer>
 
 <script>
-// Lois filter
-function filterLois(cat) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  document.querySelectorAll('.loi-card').forEach(card => {
-    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
-  });
-}
+  // WhatsApp form submission handler
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const company = document.getElementById('company').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
+    
+    // Format the WhatsApp message
+    const whatsappMessage = `
+*Nouvelle demande de contact - Agadir Conseil*
 
-// References
-const refs = [
-  'OCP Group','Marsa Maroc','CIH Bank','Banque Populaire','ONCF',
-  'Al Barid Bank','Crédit Agricole du Maroc','Conseil Région S-M',
-  'Agadir CCI','INDH','ONEE','CMR','CNSS','CDG','MASEN',
-  'Commune d\'Agadir','RADEEF','Office de la Formation','ANAPEC','INRH'
-];
-const track = document.getElementById('refsTrack');
-[...refs, ...refs].forEach(name => {
-  const el = document.createElement('div');
-  el.className = 'ref-item';
-  el.textContent = name;
-  track.appendChild(el);
-});
+*Données du client:*
+Prénom: ${firstName}
+Nom: ${lastName}
+Email: ${email}
+Téléphone: ${phone}
+Entreprise: ${company}
+
+*Demande:*
+Service: ${service}
+
+*Message:*
+${message}
+    `.trim();
+    
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // WhatsApp number (remove spaces and special characters, add country code)
+    const whatsappNumber = '212600887774'; // 06-08-87-77-74 becomes 212600887774
+    
+    // Create WhatsApp link
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Show success message
+    const successMsg = document.getElementById('successMsg');
+    successMsg.classList.add('show');
+    
+    // Reset form
+    this.reset();
+    
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      successMsg.classList.remove('show');
+    }, 5000);
+  });
 </script>
+
 </body>
 </html>
